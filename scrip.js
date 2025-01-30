@@ -6,48 +6,47 @@ document.addEventListener("DOMContentLoaded", function() {
     const musica = document.getElementById("musica");
     const body = document.body;
 
-    // Función para cuando se presiona "Sí"
+    // FUNCIONA: Al presionar "Sí"
     btnSi.addEventListener("click", function() {
-        inicio.style.display = "none"; // Oculta la primera pantalla
-        contenido.classList.remove("oculto"); // Muestra la parte de los corazones y flores
-        document.body.style.backgroundColor = "pink"; // Cambia el fondo a rosa
+        console.log("Botón Sí presionado"); // Verifica en la consola si se ejecuta
+        inicio.style.display = "none"; // Oculta el mensaje y botones
+        contenido.classList.remove("oculto"); // Muestra el contenido de corazones y flores
+        body.style.backgroundColor = "pink"; // Cambia el fondo a rosa
         musica.play(); // Reproduce la canción
 
-        // Generar animaciones de corazones flotando
+        // Iniciar animaciones de corazones y flores
         setInterval(crearCorazon, 500);
-
-        // Generar animación de flores en el centro
         generarFlores();
     });
 
-    // Función para cuando se intenta presionar "No"
+    // FUNCIONA: El botón "No" se mueve
     btnNo.addEventListener("mouseover", function() {
         const x = Math.random() * (window.innerWidth - btnNo.clientWidth);
         const y = Math.random() * (window.innerHeight - btnNo.clientHeight);
+        btnNo.style.position = "absolute"; // Asegura que tenga posición absoluta
         btnNo.style.left = `${x}px`;
         btnNo.style.top = `${y}px`;
     });
 
-    // Función para crear corazones flotando
+    // Generar corazones flotando
     function crearCorazon() {
         const corazon = document.createElement("div");
         corazon.classList.add("corazon");
         corazon.innerHTML = "❤️";
         corazon.style.left = Math.random() * window.innerWidth + "px";
-        corazon.style.animationDuration = Math.random() * 3 + 2 + "s"; // Duración aleatoria
+        corazon.style.animationDuration = Math.random() * 3 + 2 + "s";
         body.appendChild(corazon);
 
-        setTimeout(() => {
-            corazon.remove();
-        }, 5000); // Elimina el corazón después de 5 segundos
+        setTimeout(() => corazon.remove(), 5000);
     }
 
-    // Función para agregar las flores en el centro
+    // Generar flores en el centro
     function generarFlores() {
         const flores = document.querySelector(".flores");
+        flores.innerHTML = ""; // Limpia antes de agregar nuevas
         for (let i = 0; i < 5; i++) {
             let flor = document.createElement("img");
-            flor.src = "flor.png"; // Imagen de flores animadas
+            flor.src = "flores.png"; // Imagen de flores animadas
             flor.classList.add("flor");
             flor.style.left = `${20 * i + 30}%`;
             flores.appendChild(flor);
