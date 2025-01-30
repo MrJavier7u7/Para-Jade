@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#inicio {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#btnSi {
+    background-color: green;
+    color: white;
+}
+
+#btnNo {
+    background-color: red;
+    color: white;
+    position: absolute;
+}
+
+#contenido {
+    display: none;
+    background-color: pink;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.corazones, .flores {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.oculto {
+    display: none;
+}
